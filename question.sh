@@ -55,4 +55,4 @@ sed -i 's/c/C/g' output
 sed -i 's/\,$/\,\N/' output
 sed 's/,N/,\\N/g' output
 }
-cleaning $1 > output.csv
+cleaning $1

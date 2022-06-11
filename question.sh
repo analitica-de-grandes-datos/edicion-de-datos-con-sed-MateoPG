@@ -1,4 +1,5 @@
-#
+#! /usr/bin/env bash
+
 #  LAB: Transformación de archivos con `sed`
 #  ================================================
 #
@@ -41,3 +42,17 @@
 #
 #  >>> Escriba su codigo a partir de este punto <<<
 #
+
+cleaning() {
+sed 's/\([0-9][0-9]\)\/\([0-9][0-9]\)\/\([0-9][0-9]\)/20\3-\2-\1/' $1 > output
+sed -i 's/\([0-9]\)\/\([0-9]\)\/\([0-9]*\)/\3-0\2-0\1/' output
+sed -i 's/,/./g' output
+sed -i 's/;/,/g' output
+sed -i 's/,,/,\\N,/g' output
+sed -i 's/n/\N/g' output
+sed -i 's/a/A/g' output
+sed -i 's/c/C/g' output
+sed -i 's/\,$/\,\N/' output
+sed 's/,N/,\\N/g' output
+}
+cleaning $1

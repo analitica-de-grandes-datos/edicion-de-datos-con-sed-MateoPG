@@ -43,13 +43,13 @@
 #  >>> Escriba su codigo a partir de este punto <<<
 #
 
-sed 's/\([0-9][0-9]\)\/\([0-9][0-9]\)\/\([0-9][0-9]\)/20\3-\2-\1/' $1 > output
-sed -i 's/\([0-9]\)\/\([0-9]\)\/\([0-9]*\)/\3-0\2-0\1/' output
-sed -i 's/,/./g' output
-sed -i 's/;/,/g' output
-sed -i 's/,,/,\\N,/g' output
-sed -i 's/n/\N/g' output
-sed -i 's/a/A/g' output
-sed -i 's/c/C/g' output
-sed -i 's/\,$/\,\N/' output
-sed 's/,N/,\\N/g' output
+sed -e's/\([0-9][0-9]\)\/\([0-9][0-9]\)\/\([0-9][0-9]\)/20\3-\2-\1/;
+s/\([0-9]\)\/\([0-9]\)\/\([0-9]*\)/\3-0\2-0\1/;
+s/,/./g;
+s/;/,/g;
+s/,,/,\\N,/g;
+s/n/\N/g;
+s/a/A/g;
+s/c/C/g;
+s/\,$/\,\N/;
+s/,N/,\\N/g' $1 > output.csv

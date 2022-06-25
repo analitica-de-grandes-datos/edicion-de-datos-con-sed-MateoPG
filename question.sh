@@ -1,4 +1,3 @@
-#! /usr/bin/env bash
 #  LAB: Transformación de archivos con `sed`
 #  ================================================
 #
